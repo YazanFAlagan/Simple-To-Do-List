@@ -5,14 +5,15 @@
 }
 
 body {
-    background-color: mediumslateblue;
-    color: white;
+    background-color: #1a1a1a; 
+    color: #ffffff;
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
 }
 
 header {
     font-size: 1.5rem;
+    color: #ff6b6b;
 }
 
 header, 
@@ -29,26 +30,40 @@ form button {
     padding-left: 1rem;
     font-size: 1.8rem;
     border: none;
-    background: white;
+    background: #2c3e50; 
+    color: #ffffff; 
     border-radius: 2rem;
 }
 
 form button {
-    color: rgb(255, 200, 0);
-    background: white;
+    color: #ff6b6b; 
+    background: #2c3e50; 
     cursor: pointer;
-    transition: all 0.3 ease;
+    transition: all 0.3s ease; 
     margin-left: 0.5rem;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.5rem 2rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 form button:hover {
-    color: white;
-    background: rgb(255, 200, 0);
+    color: #2c3e50; 
+    background: #ff6b6b; 
+    box-shadow: 0 0 10px #ff6b6b, 
+                0 0 20px #ff6b6b, 
+                0 0 30px #ff6b6b; 
+    transform: scale(1.05); 
+}
+
+form button:active {
+    transform: scale(0.95); 
+    box-shadow: 0 0 15px #ff6b6b; 
 }
 
 .fa-plus-circle {
     margin-top: 0.3rem;
-    margin-left: -8px;
+    margin-left: 1px;
 }
 
 .todo-container {
@@ -58,21 +73,35 @@ form button:hover {
 }
 
 .todo-list {
-    min-width: 30%;
+    width: 50%;
+    margin: 1rem auto;
     list-style: none;
 }
 
 .todo {
     margin: 0.5rem;
     padding-left: 0.5rem;
-    background: white;
-    color: black;
+    background: #2c3e50; 
+    color: #ffffff; 
     font-size: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: 0.5s;
+    transition: all 0.3s ease; 
     border-radius: 2rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.todo:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 0 10px #ff6b6b, 
+                0 0 20px #ff6b6b, 
+                0 0 30px #ff6b6b; 
+}
+
+.todo:active {
+    transform: scale(0.95); 
+    box-shadow: 0 0 15px #ff6b6b; 
 }
 
 .todo li {
@@ -89,13 +118,13 @@ form button:hover {
 }
 
 .complete-btn {
-    background: rgb(255, 200, 0);
+    background: #4ecdc4; 
 }
 
 .trash-btn {
     border-top-right-radius: 1.75rem;
     border-bottom-right-radius: 1.75rem;
-    background: rgb(171, 171, 171);
+    background: #ff6b6b; 
 }
 
 .todo-item {
@@ -117,41 +146,82 @@ form button:hover {
     opacity: 0;
 }
 
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: none;
-    border: none;
-}
-
 .select {
     margin: 1rem;
     position: relative;
     overflow: hidden;
     border-radius: 50px;
+    transition: all 0.3s ease; 
+    background: #2c3e50; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 select {
-    color:rgb(255, 200, 0);
-    width: 10rem;
-    height: 3.2rem;
+    color: #ff6b6b; 
+    width: 12rem;
+    height: 3.5rem;
     cursor: pointer;
-    padding: 1rem;
+    padding: 0 1.5rem;
+    border-radius: 50px;
+    background: transparent;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.select:hover {
+    box-shadow: 0 0 10px #ff6b6b, 
+                0 0 20px #ff6b6b, 
+                0 0 30px #ff6b6b;
+    transform: scale(1.05); 
+}
+
+select:hover {
+    color: #2c3e50; 
+    background: #ff6b6b; 
+    border-color: #2c3e50; 
 }
 
 .select::after {
     content: "\25BC";
     position: absolute;
-    background:rgb(255, 200, 0);
-    top: 0;
-    right: 0;
-    padding: 1rem;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    background: #ff6b6b; 
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: white;
+    font-size: 0.9rem;
     pointer-events: none;
     transition: all 0.3s ease;
 }
 
-.select::hover::after {
-    background: white;
-    color: rgb(255, 200, 0);
+.select:hover::after {
+    background: #2c3e50; 
+    color: #ff6b6b; 
+    box-shadow: 0 0 10px #2c3e50, 
+                0 0 20px #2c3e50; 
+}
+
+@media (max-width: 768px) {
+    .todo-list {
+        width: 80%;
+    }
+
+    form input, 
+    form button {
+        font-size: 1.2rem;
+    }
+
+    .todo {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    form input, 
+    form button {
+        font-size: 1rem;
+    }
 }
